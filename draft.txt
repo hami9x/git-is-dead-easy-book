@@ -1,0 +1,20 @@
+GIT IS DEAD EASY
+---------------
+Chap 1: Git là gì? Tại sao phải dùng?
+
+Git là một Version Control System - VCS, hay "Hệ thống quản lí phiên bản". What? Lúc trước, khi mới đọc khái niệm này tôi cứ nghĩ: "phiên bản phần mềm thì lâu lâu mới ra, có mấy phiên bản đâu mà phải "quản lí" nhỉ, nhảm thế o_o".
+Không, hoàn toàn không phải như vậy, đó là cách hiểu theo nghĩa hẹp của từ "version", version ở đây tức là một trạng thái BẤT KÌ của một thứ nào đó, cụ thể là mã nguồn phần mềm (code), cứ mỗi khi một dòng code mới, hay thậm chí chỉ một chữ cái được thêm vào, được lưu lại thì đã được coi là có một "version" mới rồi. Và từ bây giờ, mọi khi tôi nhắc tới "version" thì bao giờ nó cũng phải được hiểu theo nghĩa này, nhớ đấy, nếu không bạn sẽ chả hiểu tôi nói gì đâu :D.
+Một khi bạn đã hiểu đúng khái niệm "version" thì việc hiểu VCS là gì cũng trở nên hết sức đơn giản.
+
+Khi dùng git, ta sẽ lưu trạng thái của code phần mềm ở nhiều thời điểm khác nhau, hay gọi là những "version" khác nhau vào trong hệ thống của git. Chẳng hạn như khi chúng ta fix được một bug, hay thêm một chức năng nhỏ, hoặc thậm chí là đang làm dở một phần nào đó, chúng ta có thể lưu vào git. Để làm gì?
+
+Git sẽ trở thành "cỗ máy thời gian" cung cấp cho chúng ta nhiều sức mạnh tuyệt vời, mà điển hình nhất là khả năng "trở về quá khứ". Chẳng hạn như bạn thay đổi một phần nào đó của code và làm rối tung mọi thứ lên, bạn hối hận vì cách làm mới là hoàn toàn tầm bậy, cần phải về như cũ! Bạn thốt lên "Oh shit! Chết tôi rồi, sắp deadline rồi mà tự dưng mình phá hỏng hết cái soft thế này". Giải pháp duy nhất là ngồi sửa lại như cũ, nhưng nếu dùng git thì bạn đã được cứu rồi, chỉ một lệnh đơn giản là bạn có thể đưa code trở về bất kì một thời điểm nào trong quá khứ, và làm việc trên code đó ^^.
+Ngoài ra git còn cung cấp rất nhiều tính năng và đem lại rất nhiều lợi ích khác, cụ thể thì từ từ bạn sẽ biết.
+
+Đọc đến đây có thể bạn sẽ băn khoăn "Có gì đâu, muốn quay lại quá khứ thì đơn giản là cứ backup thường xuyên, copy ra thư mục khác, khi cần thì xài".
+Ban đầu tôi muốn đưa ra những dẫn chứng cụ thể, nhưng thôi xin trả lời đơn giản: việc gì phải chuốc khổ vào thân mà đi làm thủ công như vậy, mà bạn có làm thường xuyên được cái việc "nông dân" đó không? Cứ xài git luôn đi cho sướng, tuy mất thời gian làm quen với "máy móc", nhưng ai cũng biết máy móc so với làm thủ công thì như thế nào :D. Hơn nữa "quay lại quá khứ" chỉ là một chức năng của git thôi, git còn những tính năng rất quan trọng giúp cho việc làm phần mềm gồm nhiều người tham gia trở nên khả thi, và còn nhiều nữa.
+
+Git, hay một VCS bất kì như svn, mercurial, bazaar..., là phần tất yếu và không thể thiếu của những dự án gồm nhiều người tham gia, đặc biệt là các dự án nguồn mở, nếu không có VCS, thì những rủi ro là quá cao khi mà một nước đi sai có thể làm thụt lùi cả một dự án, và chúng ta mất không ít thời gian để bù đắp lại những bước lùi đó. Và nguy hiểm hơn, một sự cố nhỏ xảy ra có thể làm mất toàn bộ hay một phần của dự án!! Một dự án lớn với nhiều người tham gia thì phức tạp gấp nhiều lần so với làm 1 soft nhỏ cá nhân cho vui, bạn nên hiểu điều đó.
+
+---
+Chap 2: Cài đặt và cơ bản
