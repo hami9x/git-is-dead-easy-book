@@ -20,9 +20,6 @@ Tất nhiên sẽ không có nhiều vấn đề nếu bạn phát triển phầ
 
 Git, hay một VCS khác như svn, mercurial, bazaar..., là phần tất yếu và không thể thiếu của những dự án gồm nhiều người tham gia, điển hình là các dự án nguồn mở. Với một VCS, tất cả những thứ như ai đóng góp code gì, sửa những gì, lúc nào, cụ thể đã thay đổi những dòng nào... đều được VCS phân tích, lưu lại và chúng ta có thể dễ dàng quản lí mọi thứ. Nếu không có VCS, thì những rủi ro là quá cao khi mà một nước đi sai có thể làm thụt lùi cả một dự án, và chúng ta mất không ít thời gian để bù đắp lại những bước lùi đó. Và nguy hiểm hơn, một sự cố nhỏ xảy ra có thể làm mất toàn bộ hay một phần của dự án!! Một dự án lớn với nhiều người tham gia thì phức tạp gấp nhiều lần so với làm 1 soft nhỏ cá nhân cho vui, bạn nên hiểu điều đó.
 
-II. Ai xài?
+II. Ai dùng?
 Ai dùng VCS? Vâng, hầu hết các các dự án phần mềm chuyên nghiệp. Chỉ có những dự án rất nhỏ, chỉ những lập trình viên nghiệp dư hay những công ty rất nhỏ, thiếu chuyên nghiệp mới không dùng VCS để phát triển phần mềm thôi. Dùng VCS là chuyện thường ở huyện.
 Ai dùng git? Một phần không nhỏ trong lượng người dùng VCS khổng lồ đó. Git chính là một trong những VCS phổ biến nhất trên thế giới hiện nay. Github.com - trang lưu trữ, phát triển các dự án phần mềm nguồn mở dùng git - hiện gần như đã trở thành một "chuẩn" trong cộng đồng nguồn mở, các dự án lâu đời một số đã chuyển từ nơi khác sang github, còn các dự án mới phần lớn được đưa lên github... Tôi cũng sẽ không kể ra đây những dự án lớn nhất dùng git, vì đó là việc thừa thải, có quá nhiều dự án lớn dùng git và việc sử dụng git cho một dự án nguồn mở là chuyện quá ư là phổ biến. Tất nhiên các dự án nguồn đóng thì chả ai biết họ dùng VCS nào để phát triển nên không nhắc đến làm gì.
-
----
-Chap 2: Cài đặt và cơ bản

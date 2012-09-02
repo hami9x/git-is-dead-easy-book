@@ -1,4 +1,4 @@
-git-is-dead-easy-book
+Git cho người Việt
 =====================
 
-A Vietnamese book about Git, for Vietnamese
+Sách về Git, bởi người Việt, viết cho người Việt
