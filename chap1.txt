@@ -3,17 +3,32 @@ Chap 1: Git là gì? Tại sao phải dùng?
 
 I. Hiểu đúng
 
-Git là một Version Control System - VCS, hay "Hệ thống quản lí phiên bản". What? Lúc trước, khi mới đọc khái niệm này tôi cứ nghĩ: "phiên bản phần mềm thì lâu lâu mới ra, có mấy phiên bản đâu mà phải "quản lí" nhỉ, nhảm thế?".
-Không, hoàn toàn không phải như vậy, đó là cách hiểu theo nghĩa hẹp của từ "version", version ở đây tức là một trạng thái BẤT KÌ của một thứ nào đó, cụ thể là mã nguồn phần mềm (code), cứ mỗi khi một dòng code mới, hay thậm chí chỉ một chữ cái được thêm vào, được lưu lại thì đã được coi là có một "version" mới rồi. Và từ bây giờ, mọi khi tôi nhắc tới "version" thì bao giờ nó cũng nên được hiểu theo nghĩa này, nhớ đấy, nếu không bạn sẽ chả hiểu tôi nói gì đâu.
-Một khi bạn đã hiểu đúng khái niệm "version" thì việc hiểu VCS là gì, git là gì cũng trở nên hết sức đơn giản.
+Git là một Version Control System - VCS, hay "Hệ thống quản lí phiên bản". Lúc trước, khi mới đọc khái niệm này tôi cứ nghĩ: "phiên bản phần mềm thì thỉnh thoảng mới ra, có mấy phiên bản đâu mà phải "quản lí" nhỉ?".
 
-Dùng git ta sẽ dễ dàng lưu trạng thái của code phần mềm ở nhiều thời điểm khác nhau, hay gọi là những "version" khác nhau, vào trong hệ thống của git. Chẳng hạn như khi fix được một bug, thêm một chức năng nhỏ, hoặc thậm chí là đang làm dở một phần nào đó, chúng ta có thể lưu vào git. Để làm gì? Tôi xin đưa ra 2 tính năng quan trọng nhất của git:
+Tôi đã nhầm, hoàn toàn không phải như vậy, đó là cách hiểu theo nghĩa hẹp của từ "version", hay phiên bản. Thực ra "phiên bản" nghĩa là một trạng thái *bất kì*, chẳng hạn, cứ mỗi khi một dòng code mới, hay thậm chí chỉ một chữ cái được thêm vào hay xóa đi, được lưu lại thì đã được coi là có một phiên bản mới rồi. Và từ bây giờ, mọi khi tôi nhắc tới "phiên bản", hay version thì bao giờ nó cũng nên được hiểu theo nghĩa này, bạn hãy ghi nhớ điều đó.
+
+Một khi đã hiểu đúng khái niệm "phiên bản" thì việc hiểu VCS là gì, git là gì cũng trở nên hết sức đơn giản.
+
+Dùng git, chúng ta sẽ dễ dàng lưu lại trạng thái của dự án ở nhiều thời điểm khác nhau. Chẳng hạn như khi fix được một bug, thêm một chức năng nhỏ, chỉnh sửa một chút hoặc thậm chí là đang làm dở một phần nào đó, chúng ta có thể lưu vào git. Để làm gì? Tôi xin đưa ra 2 tính năng quan trọng nhất của git:
 
 1. Cỗ máy thời gian:
-Git sẽ trở thành "cỗ máy thời gian" cung cấp cho chúng ta nhiều sức mạnh tuyệt vời, mà điển hình nhất là khả năng "trở về quá khứ". Chẳng hạn như bạn thay đổi một phần nào đó của code và làm rối tung mọi thứ lên, bạn hối hận vì cách làm mới là hoàn toàn sai lầm, cần phải về như cũ! Bạn thốt lên "Chết tôi rồi, sắp tới hạn rồi mà tự dưng mình phá hỏng hết cái soft thế này!". Giải pháp duy nhất là ngồi sửa lại như cũ, nhưng nếu dùng git thì bạn đã được cứu rồi, chỉ một lệnh đơn giản là bạn có thể đưa code trở về một thời điểm trong quá khứ, và làm việc trên code đó.
 
-Đọc đến đây có thể bạn sẽ băn khoăn "Có gì đâu, muốn quay lại quá khứ thì đơn giản là cứ backup thường xuyên, copy ra thư mục khác, khi cần thì dùng".
-Nhưng, có được mấy người đủ "siêng" để có thể nhớ và thực hiện "backup" thường xuyên khi code? Việc gì phải chuốc khổ vào thân mà đi làm thủ công như vậy? Cứ dùng git luôn đi cho sướng, tuy mất chút ít thời gian làm quen với "máy móc", nhưng ai cũng biết máy móc so với làm thủ công thì như thế nào. Hơn nữa "quay lại quá khứ" chỉ là một chức năng của git thôi, git còn là...
+Bất cứ điều gì cũng có thể xảy ra trong quá trình chúng ta phát triển phần mềm. Chỉ cần tưởng tượng một chút, chúng ta có thể nghĩ ra hàng loạt trường hợp gây nên những sự cố trầm trọng, chẳng hạn:
+- Bạn sửa một số phần trong code và kết quả là làm rối tung nó lên
+
+
+Git lưu lại toàn bộ lịch sử dự án, và sẽ trở thành "cỗ máy thời gian" có thể dễ dàng đưa phần mềm của bạn về quá khứ giống như kiểu trong truyện Đô-rê-mon.
+
+
+
+Bạn tìm cách cải thiện một hệ thống trong code của bạn. Lúc đầu tưởng đơn giản, nhưng bạn dần dần mới phát hiện ra là sự thay đổi đó gây ảnh hưởng đến rất nhiều thứ khác. Bởi vậy, bạn phải sửa rất nhiều chỗ. Nhưng không may, kết quả không thể nào tệ hơn, bạn làm rối tung mọi thứ lên. Bây giờ bạn mới chợt nhận ra: cách làm mới là hoàn toàn sai lầm!
+
+Phải làm thế nào trong tình huống này?
+Nếu như phải ngồi sửa lại như cũ thì quá cực khổ, quá khó chịu và quá mất thời gian.
+Nếu là một người cẩn thận, bạn có thể đã copy code cũ ra đâu đó để dự phòng. Và nó sẽ là cứu tinh!
+Nhưng không lẽ phải thường xuyên copy dự án của mình ra, gọi là "backup" để phòng khi có sự cố? Nghe cũng được đấy, nhưng không thực tế chút nào. Thứ nhất, bạn phải vượt qua rào cản là "lười". Thứ hai, việc này quá mất thời gian, quá phức tạp và rất dễ gây sai sót.
+
+Và VCS được tạo ra
 
 2. Hệ thống để điều hành việc phát triển phần mềm nhóm
 Tất nhiên sẽ không có nhiều vấn đề nếu bạn phát triển phần mềm một mình, và thậm chí git cũng không phải là quá cần thiết. Nhưng nếu bạn làm với người khác thì sao? Giả sử dự án của bạn đã phát triển được một phần và bạn mời một người nào đó vào dự án, làm thế nào bạn quản lí được xem người đó đã sửa những gì? Vâng, người mới vào tất nhiên không hiểu rõ code, kiến trúc, ý đồ cũng như coding convention (quy tắc code) của bạn, vì thế có thể viết ra code không tốt, không hợp và dễ gây ra bug nghiêm trọng hay thậm chí làm rối tung dự án của bạn lên. Làm thế nào để kiểm soát điều đó? Làm thế nào để biết được chính xác người kia đã thay đổi những gì?
