@@ -1,7 +1,7 @@
 ---------------
 Chap 1: Git là gì? Tại sao phải dùng?
 
-I. Hiểu đúng
+I. VCS và sự cần thiết
 
 Git là một Version Control System - VCS, hay "Hệ thống quản lí phiên bản". Lúc trước, khi mới đọc khái niệm này tôi cứ nghĩ: "phiên bản phần mềm thì thỉnh thoảng mới ra, có mấy phiên bản đâu mà phải "quản lí" nhỉ?".
 
@@ -9,32 +9,52 @@ Tôi đã nhầm, hoàn toàn không phải như vậy, đó là cách hiểu th
 
 Một khi đã hiểu đúng khái niệm "phiên bản" thì việc hiểu VCS là gì, git là gì cũng trở nên hết sức đơn giản.
 
-Dùng git, chúng ta sẽ dễ dàng lưu lại trạng thái của dự án ở nhiều thời điểm khác nhau. Chẳng hạn như khi fix được một bug, thêm một chức năng nhỏ, chỉnh sửa một chút hoặc thậm chí là đang làm dở một phần nào đó, chúng ta có thể lưu vào git. Để làm gì? Tôi xin đưa ra 2 tính năng quan trọng nhất của git:
+Dùng git, chúng ta sẽ dễ dàng lưu lại trạng thái của dự án ở nhiều thời điểm khác nhau theo thời gian. Chẳng hạn như khi fix được một bug, thêm một chức năng nhỏ, chỉnh sửa một chút hoặc thậm chí là đang làm dở một phần nào đó, chúng ta có thể lưu vào git. Để làm gì? Tôi xin đưa ra 2 tính năng quan trọng nhất của git:
 
 1. Cỗ máy thời gian:
 
 Bất cứ điều gì cũng có thể xảy ra trong quá trình chúng ta phát triển phần mềm. Chỉ cần tưởng tượng một chút, chúng ta có thể nghĩ ra hàng loạt trường hợp gây nên những sự cố trầm trọng, chẳng hạn:
-- Bạn sửa một số phần trong code và kết quả là làm rối tung nó lên
+- Bạn sửa một số phần trong code và kết quả là làm rối tung nó lên (điều này đặc biệt dễ xảy ra khi bạn phải làm việc trên code do người khác viết)
+- Bạn quyết định bỏ đi một file hay một phần code nào đó và rồi phải hối hận
+- Bạn vô tình ghi đè lên một file nào đó của dự án
+.v.v..
 
+Có một giải pháp "thủ công" là thường xuyên sao lưu các file của dự án ra những thư mục khác, nếu gặp sự cố thì phục hồi lại. Tuy nhiên cách này dễ phát sinh việc ghi đè file không mong muốn, cụ thể là đè một file ở phiên bản cũ lên một file bạn vừa chỉnh sửa. Thêm nữa, việc tìm ra cái mình cần trong hàng tá những gì đã lưu lại cũng rất là khó khăn.
 
-Git lưu lại toàn bộ lịch sử dự án, và sẽ trở thành "cỗ máy thời gian" có thể dễ dàng đưa phần mềm của bạn về quá khứ giống như kiểu trong truyện Đô-rê-mon.
+Và VCS đã ra đời để đáp ứng nhu cầu "sao lưu" đó ở một mức độ chuyên nghiệp hơn nhiều. Các VCS như git giúp cho việc này trở nên cực kì dễ dàng, hiệu quả và an toàn. Mọi thao tác lưu trữ, bố trí dữ liệu đều được VCS quản lí, ta chỉ việc ra lệnh cho nó lưu cái gì. Khi cần, ta có thể soi lại lịch sử, xem những thay đổi của code ở từng thời điểm và dùng "cỗ máy thời gian" của VCS để đưa dự án về bất cứ thời điểm nào trong những "phiên bản" đã lưu lại. Hoành tráng chứ nhể?
 
+2. Hệ thống giúp điều hành việc phát triển phần mềm nhóm
 
+Sẽ không có nhiều vấn đề nếu bạn phát triển phần mềm một mình, và thậm chí VCS cũng không phải là bắt buộc. Nhưng nếu bạn cùng làm với người khác thì sao?
+Giả sử dự án của bạn đã phát triển được một phần và bạn mời một người nào đó vào dự án, làm thế nào bạn quản lí được xem người đó tham gia thế nào, và sửa những gì trong code?
 
-Bạn tìm cách cải thiện một hệ thống trong code của bạn. Lúc đầu tưởng đơn giản, nhưng bạn dần dần mới phát hiện ra là sự thay đổi đó gây ảnh hưởng đến rất nhiều thứ khác. Bởi vậy, bạn phải sửa rất nhiều chỗ. Nhưng không may, kết quả không thể nào tệ hơn, bạn làm rối tung mọi thứ lên. Bây giờ bạn mới chợt nhận ra: cách làm mới là hoàn toàn sai lầm!
+Vâng, người mới vào tất nhiên không hiểu rõ code, kiến trúc, ý đồ cũng như coding convention (quy tắc code) của bạn, vì thế có thể viết ra code không tốt, không hợp, dễ gây ra lỗi nghiêm trọng hay thậm chí làm rối tung dự án của bạn lên. Làm thế nào để kiểm soát điều đó? Làm thế nào để biết được chính xác người kia đã thay đổi những gì?
 
-Phải làm thế nào trong tình huống này?
-Nếu như phải ngồi sửa lại như cũ thì quá cực khổ, quá khó chịu và quá mất thời gian.
-Nếu là một người cẩn thận, bạn có thể đã copy code cũ ra đâu đó để dự phòng. Và nó sẽ là cứu tinh!
-Nhưng không lẽ phải thường xuyên copy dự án của mình ra, gọi là "backup" để phòng khi có sự cố? Nghe cũng được đấy, nhưng không thực tế chút nào. Thứ nhất, bạn phải vượt qua rào cản là "lười". Thứ hai, việc này quá mất thời gian, quá phức tạp và rất dễ gây sai sót.
+Làm việc nhóm như thế này rất khó khăn, và điều này cũng áp dụng ở trường hợp ngược lại, khi bạn là người mới tham gia vào dự án của người khác.
 
-Và VCS được tạo ra
+Git, hay một VCS khác như SVNs, Mercurial, Bazaar..., là phần tất yếu và không thể thiếu của những dự án gồm nhiều người tham gia, một ví dụ điển hình là các dự án nguồn mở. Với một VCS tốt, tất cả những thứ như ai đóng góp code gì, sửa những gì, lúc nào, cụ thể đã thay đổi những dòng nào... đều được VCS phân tích, lưu lại và chúng ta có thể dễ dàng quản lí mọi thứ.
 
-2. Hệ thống để điều hành việc phát triển phần mềm nhóm
-Tất nhiên sẽ không có nhiều vấn đề nếu bạn phát triển phần mềm một mình, và thậm chí git cũng không phải là quá cần thiết. Nhưng nếu bạn làm với người khác thì sao? Giả sử dự án của bạn đã phát triển được một phần và bạn mời một người nào đó vào dự án, làm thế nào bạn quản lí được xem người đó đã sửa những gì? Vâng, người mới vào tất nhiên không hiểu rõ code, kiến trúc, ý đồ cũng như coding convention (quy tắc code) của bạn, vì thế có thể viết ra code không tốt, không hợp và dễ gây ra bug nghiêm trọng hay thậm chí làm rối tung dự án của bạn lên. Làm thế nào để kiểm soát điều đó? Làm thế nào để biết được chính xác người kia đã thay đổi những gì?
+Nếu không có VCS thì có thể nói một nhóm gần như không thể phát triển một phần mềm thành công vì khó mà biết được mọi người đang làm gì, sửa những gì, hậu quả là code tạo ra trở thành một mớ hỗn độn không theo quy tắc nào cả. Việc "dẫm lên chân của nhau" có thể nói là "cơm bữa". Và những rủi ro là quá cao khi mà một nước đi sai có thể làm thụt lùi cả một dự án.
 
-Git, hay một VCS khác như svn, mercurial, bazaar..., là phần tất yếu và không thể thiếu của những dự án gồm nhiều người tham gia, điển hình là các dự án nguồn mở. Với một VCS, tất cả những thứ như ai đóng góp code gì, sửa những gì, lúc nào, cụ thể đã thay đổi những dòng nào... đều được VCS phân tích, lưu lại và chúng ta có thể dễ dàng quản lí mọi thứ. Nếu không có VCS, thì những rủi ro là quá cao khi mà một nước đi sai có thể làm thụt lùi cả một dự án, và chúng ta mất không ít thời gian để bù đắp lại những bước lùi đó. Và nguy hiểm hơn, một sự cố nhỏ xảy ra có thể làm mất toàn bộ hay một phần của dự án!! Một dự án lớn với nhiều người tham gia thì phức tạp gấp nhiều lần so với làm 1 soft nhỏ cá nhân cho vui, bạn nên hiểu điều đó.
+Một dự án lớn với nhiều người tham gia thì phức tạp gấp nhiều lần so với làm 1 soft nhỏ cá nhân, có lẽ bạn cũng hiểu điều đó.
 
-II. Ai dùng?
-Ai dùng VCS? Vâng, hầu hết các các dự án phần mềm chuyên nghiệp. Chỉ có những dự án rất nhỏ, chỉ những lập trình viên nghiệp dư hay những công ty rất nhỏ, thiếu chuyên nghiệp mới không dùng VCS để phát triển phần mềm thôi. Dùng VCS là chuyện thường ở huyện.
-Ai dùng git? Một phần không nhỏ trong lượng người dùng VCS khổng lồ đó. Git chính là một trong những VCS phổ biến nhất trên thế giới hiện nay. Github.com - trang lưu trữ, phát triển các dự án phần mềm nguồn mở dùng git - hiện gần như đã trở thành một "chuẩn" trong cộng đồng nguồn mở, các dự án lâu đời một số đã chuyển từ nơi khác sang github, còn các dự án mới phần lớn được đưa lên github... Tôi cũng sẽ không kể ra đây những dự án lớn nhất dùng git, vì đó là việc thừa thải, có quá nhiều dự án lớn dùng git và việc sử dụng git cho một dự án nguồn mở là chuyện quá ư là phổ biến. Tất nhiên các dự án nguồn đóng thì chả ai biết họ dùng VCS nào để phát triển nên không nhắc đến làm gì.
+II. Tại sao dùng Git?
+1. CVCS vs DVCS
+
+Hiện nay có 2 loại VCS chính: CVCS (Centralized Version Control System), tức "Hệ thống quản lí phiên bản tập trung" và DVCS (Distributed Version Control System), tức "Hệ thống quản lí phiên bản phân tán".
+
+CVCS là mô hình mà trước đây có thể nói là "chuẩn", với đại diện khá tiêu biểu là SVN, hiện nay công cụ này vẫn còn được sử dụng ở nhiều tổ chức.
+
+Tuy nhiên, mô hình này vẫn có nhiều hạn chế. Trong một CVCS, mọi dữ liệu đều được lưu trên máy chủ trung tâm và mọi thao tác quản lý, truy vấn và lưu vào VCS của người tham gia đều phải thông qua máy chủ, qua mạng. Chúng ta chỉ lấy về một phiên bản duy nhất của dự án và thao tác trên đó.
+Bởi vậy, chỉ cần máy chủ gặp một sự cố mất dữ liệu, tất cả những gì đã lưu lại của dự án sẽ không cánh mà bay! Thêm nữa, việc phải làm việc liên tục qua mạng, phụ thuộc vào máy chủ cũng đem lại nhiều phiền toái: thao tác với VCS chậm; không thể làm việc được nếu máy chủ gặp vấn đề, đang bảo trì, hoặc vì một lí do nào đó bạn không thể truy cập mạng, không thể kết nối với máy chủ.
+
+Để giải quyết những hạn chế này, DVCS đã ra đời, và được coi là sự thay thế tốt hơn cho mô hình CVCS.
+
+Ở mô hình này, mọi người tham gia đều giữ riêng một "kho" của dự án chứa toàn bộ tiến trình, toàn bộ các phiên bản và lịch sử đã lưu của VCS. Hầu hết các thao tác đều được thực hiện trên máy riêng, bởi vậy, chúng được thực hiện cực nhanh (đa số thao tác được thực hiện xong ngay lập tức), có thể làm việc được mà không cần mạng, không cần kết nối với máy chủ.
+
+Dùng DVCS, hiển nhiên vẫn cần có một máy chủ trung tâm làm nơi chính để lưu trữ dữ liệu của dự án, và những thay đổi từ các thành viên sẽ được đưa lên máy chủ khi sẵn sàng. DVCS giúp giảm bớt sự phụ thuộc vào server và khai thác tối đa các lợi thế từ nó.
+
+Git là một trong những VCS thuộc mô hình phân tán DVCS này.
+
+2. Git vs Mercurial vs Bazaar vs ...
+#FIXME
